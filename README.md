@@ -63,11 +63,13 @@
 - (정우) 일정등록 ui - 일정 정보 관리방식, 생성방식 변경
 
 ### Day 07 : VerifiedPassword Test (19.07.15)
-- (오인) verifiedPassword 기능 추가 및 단위 Test (성공)
+- (오인) verifiedPassword 기능 추가 및 단위 Test (성공)  
+- (성현) login에 virifiedPassword 추가
 
 ### Day 08 : View update (19.07.16)
-- (정우) view update : login, register, main page
+- (정우) view update : login, register, main page  
 
-### Day 09 : Web.xml -> WebInitializer.java 변경, xml 파일 제거
-- (오인) xml파일 제거 및 java config파일로 변경, WebInitializer.java 파일 생성
-- (정우) view update : common, staff, admin, pages 로 view 폴더구조 변경, 기본화면 업데이트
+### Day 09 : Web.xml -> WebInitializer.java 변경, xml 파일 제거 (19.07.17)  
+- (오인) xml파일 제거 및 java config파일로 변경, WebInitializer.java 파일 생성  
+- (정우) view update : common, staff, admin, pages 로 view 폴더구조 변경, 기본화면 업데이트  
+- (성현) Controller와 View 전체 페이지 임시 연결
