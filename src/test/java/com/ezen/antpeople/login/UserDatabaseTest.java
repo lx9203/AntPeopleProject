@@ -60,7 +60,7 @@ public class UserDatabaseTest {
 		assertEquals(msg, "정상적으로 회원 탈퇴가 되었습니다.");
 	}
 	
-	@Test
+	@Test @Ignore
 	public void userVerifiedPasswordTest() {
 		UserLoginDTO user = new UserLoginDTO("test1234@gmail.com","test1234");
 		assertTrue(us.verifiedPassword(user));

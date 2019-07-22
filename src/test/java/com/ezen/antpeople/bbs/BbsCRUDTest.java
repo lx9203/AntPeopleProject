@@ -2,6 +2,7 @@ package com.ezen.antpeople.bbs;
 
 import javax.annotation.Resource;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,7 +22,7 @@ public class BbsCRUDTest {
 	@Resource
 	BbsService bs;
 	
-	@Test
+	@Test @Ignore 
 	public void bbsUploadTest() {
 		BbsDetailDTO bbs = new BbsDetailDTO("테스트 게시물", "테스트입니다.",6, "다른이름");
 		bs.uploadBbs(bbs);
