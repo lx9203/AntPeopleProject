@@ -3,6 +3,9 @@ package com.ezen.antpeople.login;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.junit.Ignore;
@@ -46,7 +49,7 @@ public class UserDatabaseTest {
 	
 	@Test @Ignore
 	public void userSingUpTest() {
-		UserDetailDTO user = new UserDetailDTO("test1234@gmail.com","test1234","테스트 사용자",new RoleDTO(100,""),new StoreDTO(101,""));
+		UserDetailDTO user = new UserDetailDTO("test1234@gmail.com","test1234","테스트 사용자", new RoleDTO(100,""),new StoreDTO(101,""));
 		us.userSignUp(user);
 		user = us.findByEmail("test1234@gmail.com");
 		System.out.println(user.toString());
@@ -59,11 +62,20 @@ public class UserDatabaseTest {
 		String msg = us.userDelete("test123@gmail.com", "test123");
 		assertEquals(msg, "정상적으로 회원 탈퇴가 되었습니다.");
 	}
-	
+
+	//유저 비밀번호 확인 테스트 - 완료
 	@Test @Ignore
 	public void userVerifiedPasswordTest() {
 		UserLoginDTO user = new UserLoginDTO("test1234@gmail.com","test1234");
 		assertTrue(us.verifiedPassword(user));
+	}
+	
+	//유저 리스트 테스트
+	@Test @Ignore
+	public void userListTest() {
+		List<UserDetailDTO> userList = new ArrayList(us.findByAll()); 
+		for(UserDetailDTO user : userList)
+			System.out.println(user.toString());
 	}
 	
 

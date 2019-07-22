@@ -1,6 +1,7 @@
 package com.ezen.antpeople.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
@@ -35,8 +36,15 @@ public class BbsEntity extends BaseEntity implements Serializable{
 	public BbsEntity(BbsDetailDTO bbs) {
 		this.title = bbs.getTitle();
 		this.description = bbs.getDescription();
-		this.state = 0;
+		this.state = bbs.getState();
 		this.user = new UserEntity(bbs.getUser());
+	}
+	
+	//게시글 수정시 (수정시간 변경)
+	public void updateEntity(BbsDetailDTO bbs,LocalDateTime time) {
+		this.title = bbs.getTitle();
+		this.description = bbs.getDescription();
+		this.updatedAt = time;
 	}
 	
 	//게시글 보기 (Entity -> DTO)

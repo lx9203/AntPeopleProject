@@ -21,7 +21,7 @@
         </li>
         
         <li>
-          <a href="${path}/pages/board">
+          <a href="bbs">
             <i class="fa fa-calendar"></i><span>자유게시판</span>
           </a>
         </li>

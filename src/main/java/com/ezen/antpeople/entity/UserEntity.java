@@ -57,7 +57,7 @@ public class UserEntity extends BaseEntity implements Serializable {
 	}
 	//게시판 글 작성시
 	public UserEntity(UserDetailDTO user) {
-		this.email = user.getEmail();
+		this.id = user.getUser_id();
 		this.name = user.getName();
 	}
 	

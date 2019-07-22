@@ -92,23 +92,23 @@
                   	<td>으엌이</td>
                   </tr>
                 
-               	  <c:set var="boardList" value="${requestScope.boardList}"/>
+               	  <c:set var="boardList" value="${requestScope.bbsList}"/>
 				  <c:forEach var="board" items="${boardList}">
 					<tr>
-					  <td style="text-align: center;">${board.number}</td>
+					  <td style="text-align: center;">${board.bbs_id}</td>
 			          <%--Title 클릭 시 해당 글 링크로 넘어감. 서블릿 요청필요.--%>
 					  <td style="text-align: center;">
 					    <a href="${path}/#">${board.title}</a>
 					  </td>
 					  <td style="text-align: center;">
-					    <fmt:formatDate value="${board.date}" pattern="yy-MM-dd"/>
+					    ${board.updatedAt}"
 					  </td>
 					  <%-- 날짜를 String으로 받아오는 경우 parseDate --> formatDate로 두번실행.
 					  <td style="text-align: center;">
 					    <fmt:parseDate value="${notice.noticeDate}" var="dateFmt" pattern="yyyyMMdd"/>
 					    <fmt:formatDate value="${dateFmt}" pattern="yy-MM-dd"/>
 					  </td> --%>
-					  <td style="text-align: center;">${board.userId}</td>
+					  <td style="text-align: center;">${board.user.name}</td>
 					</tr>
 				  </c:forEach>
 				  

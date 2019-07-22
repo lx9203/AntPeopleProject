@@ -16,6 +16,7 @@ public interface UserService {
 	
 	//유저 검색 기능
 	public UserDetailDTO findByEmail(String email);
+	public List<UserDetailDTO> findByAll();
 	
 	//회원가입 리스트 출력
 	public List<RoleDTO> RoleList();

@@ -60,7 +60,7 @@ public class UserDetailDTO implements Serializable {
 	}
 	
 	//Id, Name 받아오는 메소드
-	public void setNameId(int user_id, String name) {
+	public UserDetailDTO(int user_id, String name) {
 		this.user_id = user_id;
 		this.name = name;
 	}

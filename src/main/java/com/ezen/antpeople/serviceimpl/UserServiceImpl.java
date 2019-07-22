@@ -104,6 +104,15 @@ public class UserServiceImpl implements UserService {
 		return stores;
 	}
 
+	@Override
+	public List<UserDetailDTO> findByAll() {
+		List<UserEntity> entitys = new ArrayList(userRepository.findAll());
+		List<UserDetailDTO> userList = new ArrayList();
+		for(UserEntity entity : entitys)
+			userList.add(entity.buildDTO());
+		return userList;
+	}
+
 	
 
 }
