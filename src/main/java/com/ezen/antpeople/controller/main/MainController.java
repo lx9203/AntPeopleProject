@@ -19,10 +19,10 @@ public class MainController {
 	}
 	
 	// 메인 페이지
-	@RequestMapping("mainpage")
+	@RequestMapping("gestmain")
 	public String mainPage() {
-		logger.info("main 페이지");
-		return "index_main_test";
+		logger.info("guestMain 페이지");
+		return "guestmain";
 	}
 	
 	// 공지

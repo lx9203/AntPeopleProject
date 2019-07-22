@@ -2,9 +2,11 @@ package com.ezen.antpeople.dto.user;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Set;
 
-import com.ezen.antpeople.entity.RoleEntity;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 import lombok.Getter;
 
@@ -12,8 +14,16 @@ import lombok.Getter;
 public class UserDetailDTO implements Serializable {
 	
     protected int user_id;
+    
+    @Email(message ="이메일 형식으로 적어주세요")
+	@NotEmpty(message = "이메일은 필수 입니다.")
 	private String email;
+    
+    @Length(min=5, message="비밀번호를 5자 이상 입력해 주세요")
+	@NotEmpty(message="비밀번호를 입력해 주세요")
 	private String password;
+    
+    @NotEmpty(message="이름은 필수 입니다.")
 	private String name;
 	private Integer state;
 	protected LocalDateTime createdAt;
@@ -50,6 +60,12 @@ public class UserDetailDTO implements Serializable {
 		this.updatedAt = updatedAt;
 		this.role = role;
 		this.store = store;
+	}
+	
+	//Id, Name 받아오는 메소드
+	public void setNameId(int user_id, String name) {
+		this.user_id = user_id;
+		this.name = name;
 	}
 
 	@Override

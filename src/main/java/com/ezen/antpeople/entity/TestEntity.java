@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.ezen.antpeople.dto.TestDTO;
+import com.ezen.antpeople.dto.test.TestDTO;
 
 @Entity
 @Table(name="test")

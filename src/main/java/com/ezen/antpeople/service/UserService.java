@@ -1,5 +1,9 @@
 package com.ezen.antpeople.service;
 
+import java.util.List;
+
+import com.ezen.antpeople.dto.user.RoleDTO;
+import com.ezen.antpeople.dto.user.StoreDTO;
 import com.ezen.antpeople.dto.user.UserDetailDTO;
 import com.ezen.antpeople.dto.user.UserLoginDTO;
 
@@ -12,5 +16,9 @@ public interface UserService {
 	
 	//유저 검색 기능
 	public UserDetailDTO findByEmail(String email);
+	
+	//회원가입 리스트 출력
+	public List<RoleDTO> RoleList();
+	public List<StoreDTO> StoreList();
 
 }

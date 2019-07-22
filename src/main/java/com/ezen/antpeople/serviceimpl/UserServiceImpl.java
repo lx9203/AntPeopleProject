@@ -1,15 +1,22 @@
 package com.ezen.antpeople.serviceimpl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ezen.antpeople.dto.user.RoleDTO;
+import com.ezen.antpeople.dto.user.StoreDTO;
 import com.ezen.antpeople.dto.user.UserDetailDTO;
 import com.ezen.antpeople.dto.user.UserLoginDTO;
+import com.ezen.antpeople.entity.RoleEntity;
+import com.ezen.antpeople.entity.StoreEntity;
 import com.ezen.antpeople.entity.UserEntity;
 import com.ezen.antpeople.repository.RoleRepository;
+import com.ezen.antpeople.repository.StoreRepository;
 import com.ezen.antpeople.repository.UserRepository;
 import com.ezen.antpeople.service.UserService;
 
@@ -19,15 +26,18 @@ public class UserServiceImpl implements UserService {
 	
 	private UserRepository userRepository;
 	private RoleRepository roleRepository;
+	private StoreRepository storeRepositoty;
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	//생성자 의존성 추가
 	private UserServiceImpl(UserRepository userRepository 
 			,RoleRepository roleRepository
-			,BCryptPasswordEncoder bCryptPasswordEncoder) {
+			,BCryptPasswordEncoder bCryptPasswordEncoder
+			,StoreRepository storeRepository) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+		this.storeRepositoty = storeRepository;
 	}
 	
 	//회원 정보 확인 
@@ -74,6 +84,24 @@ public class UserServiceImpl implements UserService {
 		return msg;
 			
 		
+	}
+	//회원 가입시 역할, 지점 리스트 출력
+	@Override
+	public List<RoleDTO> RoleList() {
+		List<RoleEntity> entitys = new ArrayList(roleRepository.findAll());
+		List<RoleDTO> roles = new ArrayList();
+		for(RoleEntity entity : entitys)
+			roles.add(entity.buildDTO());
+		return roles;
+	}
+
+	@Override
+	public List<StoreDTO> StoreList() {
+		List<StoreEntity> entitys = new ArrayList(storeRepositoty.findAll());
+		List<StoreDTO> stores = new ArrayList();
+		for(StoreEntity entity : entitys)
+			stores.add(entity.buildDTO());
+		return stores;
 	}
 
 	

@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.antpeople.dto.TestDTO;
+import com.ezen.antpeople.dto.test.TestDTO;
 import com.ezen.antpeople.entity.TestEntity;
 import com.ezen.antpeople.repository.TestRepository;
 import com.ezen.antpeople.service.TestService;

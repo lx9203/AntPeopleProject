@@ -1,4 +1,4 @@
-package com.ezen.antpeople.dto;
+package com.ezen.antpeople.dto.test;
 
 public class TestDTO {
 	private int id;

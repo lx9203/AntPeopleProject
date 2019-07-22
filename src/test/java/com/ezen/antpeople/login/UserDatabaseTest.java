@@ -1,4 +1,4 @@
-package com.ezen.antpeople.database;
+package com.ezen.antpeople.login;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
