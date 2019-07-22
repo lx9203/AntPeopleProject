@@ -7,11 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.antpeople.dto.user.RoleDTO;
 import com.ezen.antpeople.dto.user.StoreDTO;
@@ -24,9 +22,13 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	UserService userService;
+	UserDetailDTO userDetailDto;
 
 	public UserController(UserService userService) {
 		this.userService = userService;
+	}
+	public UserController(UserDetailDTO userDetailDto) {
+		this.userDetailDto = userDetailDto;
 	}
 	
 	@RequestMapping("index")
@@ -51,7 +53,7 @@ public class UserController {
 	
 	// 로그인시 아이디 비밀번호 존재여부 체크
 	@RequestMapping(value="logincheck", method = RequestMethod.POST)
-	public String logincheck(@RequestParam("email") String email, @RequestParam("password") String password) throws Exception {
+	public String logincheck(String email, String password) throws Exception {
 		logger.info("체크 페이지");			
 		UserLoginDTO user = new UserLoginDTO(email, password);
 		String returnURL ="";
@@ -78,10 +80,16 @@ public class UserController {
 	  // 회원가입 
 	
 	  @RequestMapping(value="registercheck", method= RequestMethod.POST)
-	  @ResponseBody 
-	  public String registerCheck(@RequestBody UserDetailDTO user, Model model) throws Exception{
-		  logger.info(user.getEmail());
+	  public String registercheck(@ModelAttribute UserDetailDTO uDto) throws Exception{
+		  logger.info("registercheck 페이지 " + userService.userSignUp(uDto));
+		  userService.userSignUp(uDto);
 		  return "register";
+	  }
+	  
+	  @RequestMapping("userUpdate")
+	  public String userUpdate(@ModelAttribute UserDetailDTO udDto) {
+		  userService.userUpdate(udDto);
+		  return "main/stafflist";
 	  }
 	 
 	 

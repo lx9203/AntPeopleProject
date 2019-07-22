@@ -46,7 +46,7 @@ public class UserDatabaseTest {
 	
 	@Test @Ignore
 	public void userSingUpTest() {
-		UserDetailDTO user = new UserDetailDTO("test1234@gmail.com","test1234","테스트 사용자", 1, new RoleDTO(100,""),new StoreDTO(101,""));
+		UserDetailDTO user = new UserDetailDTO("test1234@gmail.com","test1234","테스트 사용자",new RoleDTO(100,""),new StoreDTO(101,""));
 		us.userSignUp(user);
 		user = us.findByEmail("test1234@gmail.com");
 		System.out.println(user.toString());
