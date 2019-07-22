@@ -13,7 +13,7 @@ import com.ezen.antpeople.service.UserService;
 
 @Controller
 public class StaffController {
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(StaffController.class);
 	
 	@Inject
 	UserService userService;

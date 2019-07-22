@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 	public Boolean verifiedPassword(UserLoginDTO user) {
 		Optional<UserEntity> userDetail = userRepository.findByEmail(user.getEmail());
 		System.out.println(userDetail.get().toString());
-		if(userDetail.get().getPassword().equals(bCryptPasswordEncoder.encode(user.getPassword())))
+		if(bCryptPasswordEncoder.matches(user.getPassword(), userDetail.get().getPassword()))
 			return true;
 		else 
 			return false;

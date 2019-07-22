@@ -30,13 +30,13 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="${path}/main/index"><b>Ant</b>People</a>
+    <a href="../main/mainpage"><b>Ant</b>People</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">${messege}</p>
 
-    <form action="${path}/user/check.do" method="post">
+    <form action="logincheck" method="post">
       <div class="form-group has-feedback">
         <!-- <input type="email" class="form-control" placeholder="Email"> -->
         <input name="email" type="text" class="form-control" id="email" value="admin" placeholder="ID">
@@ -63,7 +63,7 @@
     </form>
     
     <a href="#">I forgot my password</a><br>
-    <a href="${path}/user/register" class="text-center">Register a new membership</a>
+    <a href="register" class="text-center">Register a new membership</a>
 
   </div>
   <!-- /.login-box-body -->

@@ -11,7 +11,7 @@
         <li class="header">Common Menu</li>
         
         <li>
-          <a href="${path}/pages/notice">
+          <a href="notice">
             <i class="fa fa-calendar"></i><span>공지사항</span>
 <!--             <span class="pull-right-container"> -->
 <!--               <small class="label pull-right bg-red">3</small> -->

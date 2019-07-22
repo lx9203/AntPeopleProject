@@ -3,30 +3,46 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- 접속 테스트 값. 차후 로그인 유형에 따라 값 수신필요. -->
+<c:set var="checkLoginInfo" value="" />
 <c:set var="checkLogin" value="" />
 <%-- <c:set var="checkLogin" value="admin" /> --%>
 <%-- <c:set var="checkLogin" value="employee" /> --%>
 
 <header class="main-header">
 	
-    <!-- Logo -->
-    <a href="${path}/pages/main" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>NT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Ant</b>People</span>
+  <!-- Logo -->
+  <a href="${path}/pages/main" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>A</b>NT</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>Ant</b>People</span>
+  </a>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <span class="sr-only">Toggle navigation</span>
     </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
 
-<!-- 로그인 시 상단에 출력되는 정보 : 알림, 로그인 한 유저정보,  -->      
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
+    <div class="navbar-custom-menu">
+<!-- 로그인 전 로그인/회원등록 버튼  -->      
+	    <c:if test="${checkLoginInfo != 'Login'}">
+	      <ul class="nav navbar-nav">
+	        <!-- Messages: style can be found in dropdown.less-->
+	        <li class="dropdown messages-menu">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	            Register
+	          </a>
+	        </li>
+	        <li class="dropdown messages-menu">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	            Login
+	          </a>
+	        </li>
+	      </ul>
+	    </c:if>
+	    <c:if test="${checkLoginInfo == 'Login'}">
+	      <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -38,7 +54,8 @@
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li><!-- start message -->
+                  <li>
+                  <!-- start message -->
                     <a href="#">
                       <div class="pull-left">
                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
@@ -244,20 +261,7 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -271,7 +275,10 @@
           </li>
 
         </ul>
-      </div>
-      
-    </nav>
+	    
+	    </c:if>
+	    
+    </div>
+    
+  </nav>
 </header>

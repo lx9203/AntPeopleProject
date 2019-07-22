@@ -68,9 +68,11 @@ public class WebInitializer implements WebApplicationInitializer{
     		//-----------------------------------------------
     		
     		// spring security 필터 적용
-            FilterRegistration fr = servletContext.addFilter("springSecurityFilterChain", 
-            		new DelegatingFilterProxy("springSecurityFilterChain"));  
-            fr.addMappingForUrlPatterns(null, false, "/*");  
+		
+//		  FilterRegistration fr = servletContext.addFilter("springSecurityFilterChain",
+//		  new DelegatingFilterProxy("springSecurityFilterChain"));
+//		  fr.addMappingForUrlPatterns(null, false, "/*");
+		 
     		
             // 인코딩 필터 적용
             FilterRegistration.Dynamic charaterEncodingFilter = servletContext.addFilter("charaterEncodingFilter", new CharacterEncodingFilter());
