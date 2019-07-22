@@ -71,8 +71,9 @@ public class MainController {
 
 	// 금일 근무자 목록
 	@RequestMapping("todaystaff")
-	public String todaystaff() throws Exception {
+	public String todaystaff(Model model) throws Exception {
 		logger.info("todaystaff 페이지");
+//		model.addAttribute("todaystaff", userService.findBystate());
 		return "todaystaff";
 	}
 

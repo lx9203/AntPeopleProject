@@ -78,7 +78,6 @@ public class UserController {
 	
 	
 	  // 회원가입 
-	
 	  @RequestMapping(value="registercheck", method= RequestMethod.POST)
 	  public String registercheck(@ModelAttribute UserDetailDTO uDto) throws Exception{
 		  logger.info("registercheck 페이지 " + userService.userSignUp(uDto));
@@ -86,9 +85,15 @@ public class UserController {
 		  return "register";
 	  }
 	  
+	  // 직원 정보 수정
 	  @RequestMapping("userUpdate")
-	  public String userUpdate(@ModelAttribute UserDetailDTO udDto) {
-		  userService.userUpdate(udDto);
+	  public String userUpdate(Model model, String email, String password, String name, RoleDTO role, StoreDTO store) {
+		  model.addAttribute(email);
+		  model.addAttribute(password);
+		  model.addAttribute(name);
+		  model.addAttribute(role);
+		  model.addAttribute(store);
+//		  userService.userUpdate(model);
 		  return "main/stafflist";
 	  }
 	 

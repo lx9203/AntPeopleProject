@@ -25,14 +25,14 @@ public class AdminController {
 		this.userDetailDto = userDetailDto;
 	}
 	
-	// 직원 전체 정보 목록
-	@RequestMapping("staffinfo")
-	public ModelAndView staffinfo(ModelAndView mav) throws Exception {
-		logger.info("staffInfo 페이지");
-		mav.addObject("staffinfo", userService.findByAll();
-		mav.setViewName("admin/staffinfo");
-		return mav;
-	}
+//	// 직원 전체 정보 목록
+//	@RequestMapping("staffinfo")
+//	public ModelAndView staffinfo(ModelAndView mav) throws Exception {
+//		logger.info("staffInfo 페이지");
+//		mav.addObject("staffinfo", userService.findByAll();
+//		mav.setViewName("admin/staffinfo");
+//		return mav;
+//	}
 	
 	// 근무 일정 계획
 	@RequestMapping("planning")
