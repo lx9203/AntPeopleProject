@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.antpeople.dto.user.RoleDTO;
 import com.ezen.antpeople.dto.user.StoreDTO;
+import com.ezen.antpeople.dto.user.UserDetailDTO;
 import com.ezen.antpeople.dto.user.UserLoginDTO;
 import com.ezen.antpeople.service.UserService;
 
@@ -61,9 +63,9 @@ public class UserController {
 		return returnURL;
 	}
 
-	// 회원가입 페이지로 이동
+	// 회원가입 페이지로 이동 - 완료
 	@RequestMapping("register")
-	public String register(Model model) throws Exception {
+	public String registerPage(Model model) throws Exception {
 		logger.info("회원가입 페이지");	
 		List<RoleDTO> roles = new ArrayList(userService.RoleList());
 		List<StoreDTO> stores = new ArrayList(userService.StoreList());
@@ -73,14 +75,15 @@ public class UserController {
 	}
 	
 	
-	  // 회원가입
-	/*
-	 * @RequestMapping(value="register", method= RequestMethod.POST) public String
-	 * registerPOST(UserDetailDTO user) throws Exception{ String returnUrl = "";
-	 * if(email != null) { userService.saveUser(userDto);
-	 * logger.info("register.do DTO추가"); returnUrl = "redirect:/pages/login"; }
-	 * else{ returnUrl = "pages/register"; } return returnUrl; }
-	 */
+	  // 회원가입 
+	
+	  @RequestMapping(value="registercheck", method= RequestMethod.POST)
+	  @ResponseBody 
+	  public String registerCheck(@RequestBody UserDetailDTO user, Model model) throws Exception{
+		  logger.info(user.getEmail());
+		  return "register";
+	  }
+	 
 	 
 
 	// 출근

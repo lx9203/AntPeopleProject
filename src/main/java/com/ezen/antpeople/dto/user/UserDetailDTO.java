@@ -49,15 +49,12 @@ public class UserDetailDTO implements Serializable {
 	}
 	
 	// 사용자 회원 가입 시
-	public UserDetailDTO(String email, String password, String name, Integer state,
+	public UserDetailDTO(String email, String password, String name,
 			 RoleDTO role, StoreDTO store) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.name = name;
-		this.state = state;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
 		this.role = role;
 		this.store = store;
 	}

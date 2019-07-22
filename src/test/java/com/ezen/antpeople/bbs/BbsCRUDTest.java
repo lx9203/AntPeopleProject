@@ -1,4 +1,4 @@
-package com.ezen.antpeople.bbs;
+﻿package com.ezen.antpeople.bbs;
 
 import javax.annotation.Resource;
 
@@ -21,8 +21,8 @@ public class BbsCRUDTest {
 	
 	@Resource
 	BbsService bs;
-	
-	@Test @Ignore 
+
+	@Test @Ignore
 	public void bbsUploadTest() {
 		BbsDetailDTO bbs = new BbsDetailDTO("테스트 게시물", "테스트입니다.",6, "다른이름");
 		bs.uploadBbs(bbs);

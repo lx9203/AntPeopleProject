@@ -34,7 +34,7 @@
 	    <p class="login-box-msg">Register a new membership</p>
 	
 		<!-- 연결할 경로 -->
-	    <form action="${path}/user/register.do" method="post">
+	    <form action="registercheck" method="post">
 	      <div class="form-group has-feedback">
 	        <input type="text" id="userName" class="form-control" placeholder="Your name">
 	        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -127,16 +127,16 @@
 	    		alert("일치")
 	    	}
 	    	
-	    	var checkExist = { email : $("email").val() };
+	    	var checkExist = { email : $("#email").val() };
 	    	console.log(checkExist);
 	    	if(typeof checkExist.email == "undefined" || checkExist.email == null || checkExist.email == ""){
 	    		alert('이메일을 입력해주세요.');
 	    	} else {
 	    		$.ajax({
-		    		url : '/user/checkExistEmail',
+		    		url : 'registercheck',
 		    		method : 'post',
 		    		data : JSON.stringify(checkExist),
-		    		contentType: "application/json; charset=utf-8",
+		    		contentType: 'application/json',
 					//dataType : ,
 					error : function(response) {
 						alert("통신실패, response: " + response);
