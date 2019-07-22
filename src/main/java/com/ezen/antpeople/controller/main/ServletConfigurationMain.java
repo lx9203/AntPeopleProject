@@ -1,4 +1,4 @@
-package com.ezen.antpeople.controller.user;
+package com.ezen.antpeople.controller.main;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,8 +11,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc //xml의 <annotation-driven>
-@ComponentScan(basePackages="com.ezen.antpeople.controller.user") // xml의 context component-scan
-public class ServletConfigurationUser extends WebMvcConfigurerAdapter{
+@ComponentScan(basePackages="com.ezen.antpeople.controller.staff") // xml의 context component-scan
+public class ServletConfigurationMain extends WebMvcConfigurerAdapter{
     
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -22,7 +22,7 @@ public class ServletConfigurationUser extends WebMvcConfigurerAdapter{
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/user/");
+        resolver.setPrefix("/WEB-INF/views/pages/");
         resolver.setSuffix(".jsp");
         return resolver;
     }

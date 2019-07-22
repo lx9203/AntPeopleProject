@@ -39,18 +39,19 @@ public class UserServiceImpl implements UserService {
 
 	// 로그인 로직
 	@Override
-	public UserDetailDTO loginUser(UserLoginDTO uld) {
-		Optional<UserEntity> userDetail = userRepository.findByEmail(uld.getEmail());
-		if(userDetail.get().getPassword().equals(uld.getPassword()))
-			return userDetail.get().buildDTO();
+	public Boolean verifiedPassword(UserLoginDTO user) {
+		Optional<UserEntity> userDetail = userRepository.findByEmail(user.getEmail());
+		System.out.println(userDetail.get().toString());
+		if(userDetail.get().getPassword().equals(bCryptPasswordEncoder.encode(user.getPassword())))
+			return true;
 		else 
-			return null;
+			return false;
 	}
 
 	//회원 가입 로직 
 	@Override
 	public String userSignUp(UserDetailDTO udd) {
-		UserEntity entity = new UserEntity(udd);
+		UserEntity entity = new UserEntity(udd,bCryptPasswordEncoder.encode(udd.getPassword()));
 		userRepository.save(entity);
 		Optional<UserEntity> checkEmail = userRepository.findByEmail(udd.getEmail());
 		if(checkEmail.isPresent())

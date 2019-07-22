@@ -1,6 +1,7 @@
 package com.ezen.antpeople.database;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import javax.annotation.Resource;
 
@@ -16,6 +17,7 @@ import com.ezen.antpeople.config.SecurityConfig;
 import com.ezen.antpeople.dto.user.RoleDTO;
 import com.ezen.antpeople.dto.user.StoreDTO;
 import com.ezen.antpeople.dto.user.UserDetailDTO;
+import com.ezen.antpeople.dto.user.UserLoginDTO;
 import com.ezen.antpeople.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,9 +46,9 @@ public class UserDatabaseTest {
 	
 	@Test @Ignore
 	public void userSingUpTest() {
-		UserDetailDTO user = new UserDetailDTO("test123@gmail.com","test123","테스트 사용자", 1, new RoleDTO(100,""),new StoreDTO(101,""));
+		UserDetailDTO user = new UserDetailDTO("test1234@gmail.com","test1234","테스트 사용자", 1, new RoleDTO(100,""),new StoreDTO(101,""));
 		us.userSignUp(user);
-		user = us.findByEmail("test123@gmail.com");
+		user = us.findByEmail("test1234@gmail.com");
 		System.out.println(user.toString());
 		assertEquals(user.getName(),"테스트 사용자");
 	}
@@ -56,6 +58,12 @@ public class UserDatabaseTest {
 	public void userDeleteTest() {
 		String msg = us.userDelete("test123@gmail.com", "test123");
 		assertEquals(msg, "정상적으로 회원 탈퇴가 되었습니다.");
+	}
+	
+	@Test
+	public void userVerifiedPasswordTest() {
+		UserLoginDTO user = new UserLoginDTO("test1234@gmail.com","test1234");
+		assertTrue(us.verifiedPassword(user));
 	}
 	
 

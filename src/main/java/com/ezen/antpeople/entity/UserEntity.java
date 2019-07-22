@@ -55,9 +55,9 @@ public class UserEntity extends BaseEntity implements Serializable {
 	//TO-DO 필요시 메소드를 통해 setter 기능을 추가한다.
 	
 	//회원가입시 유저 정보 저장
-	public UserEntity(UserDetailDTO user) {
+	public UserEntity(UserDetailDTO user, String password) {
 		this.email = user.getEmail();
-		this.password = user.getPassword();
+		this.password = password;
 		this.name = user.getName();
 		this.state = 0;
 		this.role = new RoleEntity(user.getRole());
@@ -68,6 +68,12 @@ public class UserEntity extends BaseEntity implements Serializable {
 	public UserDetailDTO buildDTO() {
 		return new UserDetailDTO(this.id, this.email, this.password, this.name,
 				this.state, this.createdAt,this.updatedAt, this.role.buildDTO(), this.store.buildDTO() );
+	}
+
+	@Override
+	public String toString() {
+		return "UserEntity [email=" + email + ", password=" + password + ", name=" + name + ", state=" + state
+				+ ", role=" + role + ", store=" + store + "]";
 	}
 	
 }
