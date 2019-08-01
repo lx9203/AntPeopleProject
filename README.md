@@ -118,8 +118,8 @@
 - (오인) Schedule Object insert (DB 저장)
 - (정우) 일정등록 ui - monthplanpage.jsp (planner main page) 업데이트
 - (오인) Schedule Object 월별 리스트 Select
-- (성현) Schedule Controller 연결 (Schedule 월별 리스트 불러오기)
+- (성현) Schedule - OwnerController 연결 (Schedule 월별 리스트 불러오기)
 
 ### Day 19 : Schedule Service (10.07.31)
 - (오인) Schedule Service 구성
-- (성현) Schedule Controller 연결 (Schedule 해당 월 데이터 연결하기)
+- (성현) Schedule - OwnerController 연결 (Schedule 해당 월 데이터 연결하기)
