@@ -77,7 +77,14 @@
 	                </div>
 	
 					<div class="box-footer" style="padding-left: 0; padding-right:0;">
-	                  <button type="button" class="btn btn-default" onclick="location.href='${path}/main/insertbbspage">목록으로</button>
+					<c:if test="${next == 1}">
+	                  <button type="button" class="btn btn-default" onclick="location.href='${path}/main/bbspage'">목록으로</button>
+	                </c:if>
+	                  
+					<c:if test="${next == 3}">
+	                  <button type="button" class="btn btn-default" onclick="location.href='${path}/main/noticepage'">목록으로</button>
+	                </c:if>
+	                  
 	                  <button type="submit" class="btn btn-info pull-right">작성완료</button>
 	                </div>
 	                <!-- /.box-footer -->

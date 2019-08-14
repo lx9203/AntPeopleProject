@@ -56,10 +56,6 @@
   .carouselDots > li {
   	box-shadow:0 0 1px black, 3px 3px 5px black;
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> 207a3c3cd2213323f581604090f8a65d2c3b7210
   </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -193,13 +189,9 @@
                 
         <!-- 사장의 box -->
         <c:if test="${user.role.role == '사장'}">
-<<<<<<< HEAD
-        <c:set var="countApply" value="${requestScope.countApply}"/>
-=======
+
         <c:set var="applyList" value="${requestScope.countApply}"/>
         <c:set var = "countApply" value = "${fn:length(applyList)}"/>
-        
->>>>>>> 207a3c3cd2213323f581604090f8a65d2c3b7210
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">

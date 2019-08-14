@@ -159,26 +159,6 @@ li > input[type=checkbox] {
 .item {
   height : inherit;
 }
-<<<<<<< HEAD
-.roleCircle {
-    width: 5rem;
-    height: 5rem;
-    border: 1px solid black;
-    border-radius: 5rem;
-    color: white;
-  }
-  .roleCircleOwner {
-  	border-color: #dd4b39;
-  	background-color: #dd4b39;
-  }
-  .roleCircleStaff {
-    border-color: #3c8dbc;
-  	background-color: #3c8dbc;
-  }
-=======
-
-
->>>>>>> 207a3c3cd2213323f581604090f8a65d2c3b7210
 /* End of Carousel height */
 
 /* Top userInfo style */

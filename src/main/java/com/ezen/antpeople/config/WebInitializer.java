@@ -18,7 +18,6 @@ import com.ezen.antpeople.controller.main.ServletConfigurationMain;
 import com.ezen.antpeople.controller.owner.ServletConfigurationOwner;
 import com.ezen.antpeople.controller.staff.ServletConfigurationStaff;
 import com.ezen.antpeople.controller.user.ServletConfigurationUser;
-import com.ezen.antpeople.exception.ServletConfigurationException;
 
 public class WebInitializer implements WebApplicationInitializer{
         @Override
